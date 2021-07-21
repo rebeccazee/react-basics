@@ -1,25 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function Item(props) {
-    const { item } = props;
-    const [bg, setBg] = React.useState('');
+  const { item } = props;
+  const [bg, setBg] = useState(0);
 
-    const handleMouseOver = () => {
-        setBg('red');
-    }
-    const handleMouseOut = () => {
-        setBg('');
-    }
-
-    return (
-        <p 
-            onMouseOver={handleMouseOver} 
-            onMouseOut={handleMouseOut} 
-            style={{backgroundColor: bg}}
-        >
-            {item}
-        </p>
-    );
+  return (
+    <p
+      onMouseOver={() => setBg('red')}
+      onMouseOut={() => setBg('')}
+      style={{ backgroundColor: bg }}
+    >
+      {item}
+    </p>
+  );
 }
 
 export default Item;
