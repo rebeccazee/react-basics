@@ -2,16 +2,17 @@ import React, { useState } from 'react';
 
 function Item(props) {
   const { item } = props;
-  const [bg, setBg] = useState(0);
+  const [isChecked, setIsChecked] = useState(false);
 
   return (
-    <p
-      onMouseOver={() => setBg('red')}
-      onMouseOut={() => setBg('')}
-      style={{ backgroundColor: bg }}
-    >
-      {item}
-    </p>
+    <div>
+      <input
+        type="checkbox"
+        checked={isChecked}
+        onChange={() => setIsChecked(true)}
+      />
+      <label>{item}</label>
+    </div >
   );
 }
 
